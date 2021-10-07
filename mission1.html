@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous">
+
+    <title>Simple Form</title>
+</head>
+<body>
+
+<!-- Optional JavaScript; choose one of the two! -->
+<script >
+    document.addEventListener("DOMContentLoaded",()=> {
+
+
+        const checkValues_=(email, fio,address,mobileTelephone,comment,register, event) => {
+
+            event.preventDefault();
+
+           let arrEmail= email.value.split("@");
+
+           let submit =true;
+
+
+            if(fio.value===""){
+
+                submit=false;
+
+                document.getElementById("errorFIO").innerHTML=`<div class="alert alert-danger">Ввод ФИО обязателен</div>`;
+            }
+            if(mobileTelephone.value===""){
+
+                submit=false;
+
+                document.getElementById("errorMobileTelephone").innerHTML=`<div class="alert alert-danger">Ввод мобильного телефона обязателен</div>`;
+            }
+
+            if(arrEmail[1]==="gmail.com"){
+
+                submit=false;
+
+                document.getElementById("errorEmail").innerHTML=`<div class="alert alert-danger">Почта @gmail.com не потдерживается</div>`;
+
+            }
+
+            if(submit){
+
+                console.log(`ФИО: ${fio.value} Адрес: ${address.value}> Email: ${email.value} Тел.: ${mobileTelephone.value} Комментарий: ${comment.value}`);
+            }
+
+        }
+
+            document.getElementById("register").addEventListener("submit",
+                checkValues_ .bind(
+                    this,
+                    document.getElementById("email"),
+                    document.getElementById("FIO"),
+                    document.getElementById("address"),
+                    document.getElementById("mobileTelephone"),
+                    document.getElementById("comment"),
+                false));
+    });
+
+
+</script>
+
+<form  name="register" id="register"  method="POST" action="">
+    <div class="form-group">
+        <label for="email">Email адрес</label>
+        <input type="email" class="form-control" id="email"  placeholder="Enter email">
+        <small id="errorEmail" class="form-text text-muted"></small>
+    </div>
+    <div class="form-group">
+        <label for="FIO">ФИО</label>
+        <input type="text" class="form-control" id="FIO" placeholder="Example input">
+        <small id="errorFIO" class="form-text text-muted"></small>
+    </div>
+    <div class="form-group">
+        <label for="address">Адрес</label>
+        <input type="text" class="form-control" id="address" placeholder="Адрес">
+        <small id="errorAddress" class="form-text text-muted"></small>
+    </div>
+    <div class="form-group">
+        <label for="mobileTelephone">мобильный телефон</label>
+        <input type="tel" class="form-control" id="mobileTelephone"  placeholder="мобильный телефон">
+        <small id="errorMobileTelephone" class="form-text text-muted"></small>
+    </div>
+    <div class="form-group">
+        <label for="comment">Комментарий</label>
+        <textarea  class="form-control" id="comment" rows="3" placeholder="Комментарий"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+<!-- Option 1: Bootstrap Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-kQtW33rZJAHjgefvhyyzcGF3C5TFyBQBA13V1RKPf4uH+bwyzQxZ6CmMZHmNBEfJ" crossorigin="anonymous"></script>
+<!-- Option 2: Separate Popper and Bootstrap JS -->
+<!--
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.min.js" integrity="sha384-PsUw7Xwds7x08Ew3exXhqzbhuEYmA2xnwc8BuD6SEr+UmEHlX8/MCltYEodzWA4u" crossorigin="anonymous"></script>
+-->
+</body>
+</html>
