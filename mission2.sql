@@ -26,7 +26,7 @@ CREATE TABLE public.executor
 (
     id integer NOT NULL GENERATED ALWAYS AS IDENTITY ( INCREMENT 1 START 1 MINVALUE 1 MAXVALUE 2147483647 CACHE 1 ),
     name character(10) COLLATE pg_catalog."default",
-    CONSTRAINT film_pkey PRIMARY KEY (id)
+    CONSTRAINT executor_pkey PRIMARY KEY (id)
 );
 
 CREATE TABLE public.genre
