@@ -5,13 +5,13 @@ function clientCode($numberOne,$numberTwo)
     foreach (range($numberOne, $numberTwo) as $key =>$value){
 
         switch ($value) {
-            case $value % 3 == 0 &&  $value % 5 == 0:
+            case $value % 3 === 0 &&  $value % 5 === 0:
                 echo "FooBar";
                 break;
-            case $value % 3 == 0:
+            case $value % 3 === 0:
                 echo "Foo";
                 break;
-            case $value % 5 == 0:
+            case $value % 5 === 0:
                 echo "Bar";
                 break;
             default:
