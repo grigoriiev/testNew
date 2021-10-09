@@ -24,7 +24,7 @@ function clientCode($numberOne,$numberTwo)
 
 }
 
-if(count($argv) && $argv[2]<$argv[1]) {
+if(count($argv)===3 && $argv[2]<$argv[1]) {
 
     clientCode($argv[1], $argv[2]);
 
